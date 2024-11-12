@@ -159,6 +159,7 @@ Constraint merupakan aturan atau batasan yang diterapkan pada data dalam sebuah 
 
 
 Jenis-jenis Constraint:
+
 **NOT NULL**:
 Mencegah nilai NULL (kosong) pada kolom tertentu. Artinya, setiap baris dalam tabel harus memiliki nilai untuk kolom yang memiliki constraint NOT NULL.
 
