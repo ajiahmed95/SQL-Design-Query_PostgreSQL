@@ -248,7 +248,7 @@ join car_product cp using(product_id)
 join users u using(user_id)
 where u.first_name ilike '%bambang%'
 ORDER BY created_at desc;
-
+```
 
 ![89cd90086ab9b83c466ea12d62f48b3a](https://github.com/user-attachments/assets/0a13442a-358a-4a3a-ad5d-656032a5bee9)
 
@@ -260,7 +260,7 @@ Pada query keempat, kita ingin melihat deskripsi dan harga dari model yaris pada
 
 
 
-
+```
 --4. Mencari mobil bekas yang termurah berdasarkan keyword
 SELECT product_id, brand, model, YEAR, price
 FROM car_product cp
@@ -291,7 +291,7 @@ LEFT JOIN bid_detail bd USING(ads_id)
 WHERE model IN (SELECT model FROM bid_model)
 GROUP BY model
 ORDER BY count_bid desc;
-
+```
 
 ![c40d6b1562bd2a366556be417f21b83e](https://github.com/user-attachments/assets/508c4fb4-1e18-4721-b9d3-9ee829692ce5)
 
@@ -305,6 +305,7 @@ Selanjutnya, bagaimana harga tiap model dibandingkan dengan harga rata-rata per 
 
 
 Query:
+```
 --2. Membandingkan harga mobil berdasarkan harga rata-rata per kota
 SELECT c.name, brand, model, YEAR, price, ROUND(AVG(price) OVER (PARTITION BY c.name)) AS avg_price_by_city
 FROM ads a
