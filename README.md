@@ -18,17 +18,20 @@ Tujuan proyek ini adalah membangun database untuk sebuah website yang menawarkan
 Business Rule dalam project ini:
 Setiap user aplikasi dapat menawarkan lebih dari satu produk mobil bekasnya.
 -> Hubungan table users dengan table ads = one to many
+
 Sebelum menjual produk mobil, user harus melengkapi data dirinya terlebih dahulu, seperti nama, kontak, dan domisili lokasi.
 -> table users pada kolom nama, kontak, dan domisili lokasi = NOT NULL
+
 User menawarkan produknya melalui iklan yang akan ditampilkan oleh website.
 Iklan ini berisikan judul, detail informasi produk yang ditawarkan, serta kontak penjual.
 Beberapa informasi yang harus ditulis dalam iklan adalah sebagai berikut
-merek mobil: Toyota, Honda, Daihatsu, dll
-Model: Toyota Camry, Toyota Corolla Altis, Toyota Vios,Toyota Camry Hybrid, dll
-Jenis body mobil: MPV, SUV, Van, Sedan, Hatchback, dll
-Tipe mobil: manual atau automatic
-Tahun pembuatan mobil: 2005, 2010, 2011, 2020 
-Deskripsi lain, seperti warna, jarak yang telah ditempuh, dsb,  boleh ditambahkan sesuai kebutuhan.
+* Merek mobil: Toyota, Honda, Daihatsu, dll
+* Model: Toyota Camry, Toyota Corolla Altis, Toyota Vios,Toyota Camry Hybrid, dll
+* Jenis body mobil: MPV, SUV, Van, Sedan, Hatchback, dll
+* Tipe mobil: manual atau automatic
+* Tahun pembuatan mobil: 2005, 2010, 2011, 2020 
+* Deskripsi lain, seperti warna, jarak yang telah ditempuh, dsb,  boleh ditambahkan sesuai kebutuhan.
+
 -> table ads akan direlasikan dengan table users dan table car_product serta tambahan table seperti table color dan tipe mobil(transmission) dan juga kolom tambahan seperti jarak tempuh mobil.
 Setiap user(buyer) bisa mencari mobil yg ditawarkan berdasarkan lokasi user(seller) penjual, merk mobil, dan jenis body mobil.
 Jika calon pembeli tertarik terhadap sebuah mobil, ia dapat menawar (bid) harga produk jika penjual mengizinkan fitur tawar. 
