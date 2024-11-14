@@ -8,12 +8,12 @@ PostgreSQL Project - Relational Database Design and Querying the Data
 
 Relational database adalah sistem untuk mengorganisir data ke dalam tabel-tabel yang saling berhubungan. Tabel-tabel ini memiliki baris (records) dan kolom (fields) yang terdefinisi dengan baik. Hubungan antara tabel-tabel ini memungkinkan untuk kita mencari, menyusun, dan memanipulasi data dengan efisien.
 
-Proyek kali ini akan menggunakan PostgreSQL (dengan DBeaver) dalam mendesain database dan analisis data menggunakan query, serta pembuatan data dummy yang akan menggunakan python (Google Colab). 
+Project kali ini akan menggunakan PostgreSQL (dengan DBeaver) dalam mendesain database dan analisis data menggunakan query, serta pembuatan data dummy yang akan menggunakan python (Google Colab). 
 
 ![3699092f263f3bc2c9b0f0105a4f3a7c](https://github.com/user-attachments/assets/b52966dd-f9f3-40bc-b6fb-38214dfff47f)
 
 
-Tujuan proyek ini adalah membangun database untuk sebuah website yang menawarkan penjualan mobil bekas. Gambaran umum tentang proyek ini adalah siapa saja (user) dapat menawarkan produknya (mobil bekas) dalam bentuk iklan dan calon pembeli (buyer) dapat melakukan pencarian berdasarkan beberapa kategori serta melakukan bid pada iklan yang menyediakan/mengaktifkan fitur bid.
+Tujuan project ini adalah membangun database untuk sebuah website yang menawarkan penjualan mobil bekas. Gambaran umum tentang project ini adalah siapa saja (user) dapat menawarkan produknya (mobil bekas) dalam bentuk iklan dan calon pembeli (buyer) dapat melakukan pencarian berdasarkan beberapa kategori serta melakukan bid pada iklan yang menyediakan/mengaktifkan fitur bid.
 
 Business Rule dalam project ini:
 Setiap user aplikasi dapat menawarkan lebih dari satu produk mobil bekasnya.
@@ -55,7 +55,7 @@ column2…
 column-n
 );
 
-Seluruh code yang digunakan dalam membuat ERD adalah sebagai berikut:
+**Seluruh code yang digunakan dalam membuat ERD adalah sebagai berikut**:
 ```
 create table city(
 	kota_id integer primary key,
@@ -146,7 +146,7 @@ Dapat dilihat pada code di atas, urutan pembuatan table selalu didahulukan pada 
 
 **NUMERIC**: Bilangan desimal dengan presisi dan skala yang dapat ditentukan. Digunakan untuk menyimpan nilai-nilai yang memerlukan tingkat akurasi tinggi, seperti harga atau mata uang.
 
-**DECIMAL**: Sama seperti NUMERIC, digunakan untuk menyimpan bilangan desimal dengan presisi dan skala yang dapat ditentukan. Pada proyek ini digunakan dalam data koordinat (latitude, longitude)
+**DECIMAL**: Sama seperti NUMERIC, digunakan untuk menyimpan bilangan desimal dengan presisi dan skala yang dapat ditentukan. Pada project ini digunakan dalam data koordinat (latitude, longitude)
 
 **VARCHAR**: Rantai karakter dengan panjang variabel. Digunakan untuk menyimpan teks dengan panjang yang bervariasi, seperti nama, alamat, atau deskripsi.
 
@@ -158,7 +158,7 @@ Dapat dilihat pada code di atas, urutan pembuatan table selalu didahulukan pada 
 
 **Constraint**
 
-Constraint merupakan aturan atau batasan yang diterapkan pada data dalam sebuah tabel untuk menjaga integritas dan konsistensi data. Constraint ini membantu memastikan bahwa data yang dimasukkan ke dalam tabel memenuhi kriteria tertentu, sehingga data yang tersimpan selalu akurat dan relevan.Penggunaan contraint pada proyek ini disesuaikan dengan objektif yang ada pada business rule.
+Constraint merupakan aturan atau batasan yang diterapkan pada data dalam sebuah tabel untuk menjaga integritas dan konsistensi data. Constraint ini membantu memastikan bahwa data yang dimasukkan ke dalam tabel memenuhi kriteria tertentu, sehingga data yang tersimpan selalu akurat dan relevan.Penggunaan contraint pada project ini disesuaikan dengan objektif yang ada pada business rule.
 
 
 Jenis-jenis Constraint:
@@ -213,7 +213,7 @@ Contoh hasil import pada tabel buyer:
 
 Selanjutnya, kita akan masuk ke dalam sesi query untuk mengetes data yang sudah kita generate menggunakan python.
 
-Query pertama, kita akan mencari tahu mobil(dengan merk, model, dan harga) apa saja yang memiliki keluaran tahun 2015. Query yang digunakan yaitu SELECT lalu ditulis seluruh data yang ingin kita tampilkan, FROM lalu tulis nama tabel yang menyimpan data tersebut dan WHERE untuk menambahkan kondisi tahun data yang difilter.
+**Query pertama, kita akan mencari tahu mobil(dengan merk, model, dan harga) apa saja yang memiliki keluaran tahun 2015.**
 
 Query:
 ```
@@ -227,7 +227,7 @@ where year >= 2015;
 ![3aea827c1ab07d73845272eb09053180](https://github.com/user-attachments/assets/f471ecac-850a-4556-9e0c-4a4cef0f7c64)
 
 
-Selanjutnya kita ingin melihat iklan yang sudah ada pembeli(bid) dalam database, dan dibatasi sebanyak 10 data saja yang ditampilkan.
+**Selanjutnya kita ingin melihat iklan yang sudah ada pembeli(bid) dalam database, dan dibatasi sebanyak 10 data saja yang ditampilkan.**
 
 Query:
 ```
@@ -241,7 +241,7 @@ limit 10;
 
 
 
-Pada query ketiga, kita ingin melihat semua mobil yang dijual oleh user bernama Bambang berdasarkan postingan terbaru.
+**Pada query ketiga, kita ingin melihat semua mobil yang dijual oleh user bernama Bambang berdasarkan postingan terbaru.**
 
 ```
 --3. Melihat semua mobil yg dijual 1 akun dari yg paling baru
@@ -259,7 +259,7 @@ ORDER BY created_at desc;
 
 
 
-Pada query keempat, kita ingin melihat deskripsi dan harga dari model yaris pada database.
+**Pada query keempat, kita ingin melihat deskripsi dan harga dari model yaris pada database.**
 
 
 
@@ -278,7 +278,9 @@ ORDER BY price;
 
 
 
-Selanjutnya kita akan masuk ke dalam analisis data berdasarkan beberapa pertanyaan. Pertanyaan pertama yaitu model mobil apa yang paling banyak di-bid berdasarkan data? Data ditampilkan berdasarkan nama model, jumlah produk di postingan, dan jumlah bid yang sudah dilakukan.
+Selanjutnya kita akan masuk ke dalam analisis data berdasarkan beberapa pertanyaan. 
+
+**1. Model mobil apa yang paling banyak di-bid berdasarkan data?** Data ditampilkan berdasarkan nama model, jumlah produk di postingan, dan jumlah bid yang sudah dilakukan.
 
 ```
 --1. Ranking popularitas model mobil berdasarkan jumlah bid
@@ -304,7 +306,7 @@ ORDER BY count_bid desc;
 Dahaitsu Ayla merupakan model yang paling dibid sebanyak 6x bid diikuti oleh Suzuki Ertiga dan Honda Jazz sebanyak 5x dan 4x bid.
 
 
-Selanjutnya, bagaimana harga tiap model dibandingkan dengan harga rata-rata per kota?
+**2. Bagaimana harga tiap model dibandingkan dengan harga rata-rata per kota?**
 
 
 Query:
@@ -326,7 +328,7 @@ JOIN car_product cp using(product_id);
 
 Dapat dilihat perbandingan harga mobil dengan harga rata-rata mobil tiap kota. Pada Kota Balikpapan yaitu Rp163.495.833 sedangkan di Kota Bandung cenderung lebih besar yaitu Rp181.157.895. Kota yang lainnya dapat dilihat dengan men-scroll lagi ke bawah.
 
-Pada analisis ketiga, yaitu bagaimana perbandingan penawaran/bid buyer pada model Daihatsu Ayla?
+**3. Bagaimana perbandingan penawaran/bid buyer pada model Daihatsu Ayla?**
 
 ```
 --3. Dari penawaran suatu model mobil,
@@ -357,7 +359,7 @@ ORDER BY buyer_id, first_bid_date;
 
 Berdasarkan output, dapat diketahui bahwa jumlah bidder model Daihatsu Ayla sebanyak 5 orang, hanya 1 orang yang melakukan bid kedua, namun nilai bid berkurang. Hal ini perlu dilihat lebih dalam apakah model yang di-bid merupakan dari ads yang sama atau bukan. Jika sama maka perlu dipertimbangkan untuk membuat constraint jika user melakukan bid selanjutnya maka nilai bid harus lebih besar dari nilai bid sebelumnya.
 
-Pada analisis ke-4 kita ingin mengetahui perbandingan persentase rata-rata harga mobil dengan rata-rata nilai bid pada 6 bulan terakhir bid dilakukan, serta persentase diferensiasi dari harga rata-rata mobil(model) dengan harga rata-rata bid. model mobil yang ingin dilihat adalah 'Toyota Yaris', 'Daihatsu Ayla', 'Toyota Camri', dan 'Honda Civic'.
+**4. Perbandingan persentase rata-rata harga mobil dengan rata-rata nilai bid pada 6 bulan terakhir bid dilakukan, serta persentase diferensiasi dari harga rata-rata mobil(model) dengan harga rata-rata bid. model mobil yang ingin dilihat adalah 'Toyota Yaris', 'Daihatsu Ayla', 'Toyota Camri', dan 'Honda Civic'.**
 
 ```
 --4. Membandingkan persentase perbedaan rata-rata harga mobil
@@ -403,7 +405,7 @@ Berdasarkan hasil, hanya ada dua mobil dari 4 mobil yang ingin dicari selama 6 b
 ![14d49cb74dd2b17250f7f71d112821c2](https://github.com/user-attachments/assets/f9d8038f-9c7a-4a80-b819-52ba87c077fd)
 
 
-Selain itu, kita ingin melihat nilai rata-rata harga bid berdasarkan 6 bulan terakhir tiap bulan pada model yang dipilih. contoh: Daihatsu Ayla.
+**5. Nilai rata-rata harga bid berdasarkan 6 bulan terakhir tiap bulan pada model yang dipilih. contoh: Daihatsu Ayla.**
 
 ```
 WITH max_bid_date AS (
@@ -465,7 +467,8 @@ WHERE model = 'Daihatsu Ayla';
 
 Berdasarkan nilai yang diperoleh, nilai bid hanya dilakukan pada bulan ke 6-5 dan 5-4 lalu, setelah itu tidak ada bid yang dilakukan pada model Daihatsu Ayla. Nilai rata-rata bid naik dari 113 juta menjadi 115 juta.
 
-Terakhir kita ingin mencari tau buyer terdekat berdasarkan koordinat seller, contoh: seller dengan lokasi jakarta pusat. Kita dapat menggunakan rumus haversine distance untuk menghitung jarak dari titik seller ke titik buyer (latitude, longitude)
+**6. Mencari tau buyer terdekat berdasarkan koordinat seller, contoh: seller dengan lokasi jakarta pusat.**
+Kita dapat menggunakan rumus haversine distance untuk menghitung jarak dari titik seller ke titik buyer (latitude, longitude)
 
 ```
 select
